@@ -20,14 +20,14 @@ public class GreetingControllerTests {
 	private MockMvc mockMvc;
 
 	@Test
-	public void noParamShouldReturnDefaultMessageTest() throws Exception {
+	public void shouldReturnDefaultMessageTest() throws Exception {
 
 		this.mockMvc.perform(get("/greeting")).andDo(print()).andExpect(status().isOk())
 				.andExpect(jsonPath("$.message").value("Hello, World!"));
 	}
 
 	@Test
-	public void paramShouldReturnTailoredMessageTest() throws Exception {
+	public void shouldReturnTailoredMessageTest() throws Exception {
 
 		this.mockMvc.perform(get("/greeting").param("name", "Gabi"))
 				.andDo(print()).andExpect(status().isOk())
