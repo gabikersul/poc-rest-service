@@ -2,13 +2,7 @@ pipeline {
    agent any
 
    stages {
-      stage('Hello') {
-         steps {
-            echo 'Hello World'
-         }
-      }
-      
-      stage('test') {
+      stage('Test') {
           steps {
              sh '''
                  ./gradlew test
@@ -16,7 +10,7 @@ pipeline {
           }
       }
       
-      stage('build') {
+      stage('Build') {
           steps {
               sh '''
                  ./gradlew clean build

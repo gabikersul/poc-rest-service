@@ -31,7 +31,7 @@ public class GreetingControllerTests {
 
 		this.mockMvc.perform(get("/greeting").param("name", "Gabi"))
 				.andDo(print()).andExpect(status().isOk())
-				.andExpect(jsonPath("$.message").value("Hello, Gabi!"));
+				.andExpect(jsonPath("$.messag").value("Hello, Gabi!"));
 	}
 
 }
