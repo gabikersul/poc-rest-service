@@ -19,7 +19,7 @@ pipeline {
       stage('build') {
           steps {
               sh '''
-                 ./gradlew build
+                 ./gradlew clean build
                 '''
           }
       }
