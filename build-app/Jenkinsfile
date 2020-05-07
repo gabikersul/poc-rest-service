@@ -1,0 +1,28 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Hello') {
+         steps {
+            echo 'Hello World'
+         }
+      }
+      
+      stage('test') {
+          steps {
+             sh '''
+                 ./gradlew test
+               '''
+          }
+      }
+      
+      stage('build') {
+          steps {
+              sh '''
+                 ./gradlew build
+                '''
+          }
+      }
+   }
+}
+
