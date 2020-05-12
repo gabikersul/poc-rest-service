@@ -28,7 +28,8 @@ pipeline {
                   rtServer (
                       id: env.ARTIFACTORY_SERVER_ID,
                       url: env.ARTIFACTORY_SERVER_URL,
-                      credentialsId: env.ARTIFACTORY_CREDENTIALS
+                      username: env.ARTIFACTORY_CREDENTIALS_USR,
+                      password: env.ARTIFACTORY_CREDENTIALS_PSW
                   )
                   rtUpload (
                       serverId: env.ARTIFACTORY_SERVER_ID,
@@ -36,7 +37,7 @@ pipeline {
                             "files": [
                               {
                                 "pattern": "build/libs/*.war",
-                                "target": "gradle-dev-local/"
+                                "target": "gradle-release-local/rest-service"
                               }
                            ]
                       }'''
