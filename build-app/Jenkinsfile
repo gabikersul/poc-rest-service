@@ -17,6 +17,32 @@ pipeline {
                 '''
           }
       }
+
+      stage('Publish Artifactory') {
+               environment {
+                  ARTIFACTORY_SERVER_ID = credentials('artifactory_server_id')
+                  ARTIFACTORY_SERVER_URL = credentials('artifactory_server_url')
+                  ARTIFACTORY_CREDENTIALS = credentials('artifactory_credentials')
+               }
+               steps {
+                  rtServer (
+                      id: env.ARTIFACTORY_SERVER_ID,
+                      url: env.ARTIFACTORY_SERVER_URL,
+                      credentialsId: env.ARTIFACTORY_CREDENTIALS
+                  )
+                  rtUpload (
+                      serverId: env.ARTIFACTORY_SERVER_ID,
+                      spec: '''{
+                            "files": [
+                              {
+                                "pattern": "/build/libs/*.war",
+                                "target": "gradle-release-local/poc-rest-service/"
+                              }
+                           ]
+                      }'''
+                  )
+               }
+            }
    }
 }
 
