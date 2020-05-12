@@ -3,7 +3,7 @@ pipeline {
 
    stages {
 
-      stage('Publish Artifactory') {
+      stage('Download Artifactory') {
                environment {
                   ARTIFACTORY_SERVER_ID = credentials('artifactory_server_id')
                   ARTIFACTORY_SERVER_URL = credentials('artifactory_server_url')
