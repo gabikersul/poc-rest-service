@@ -35,7 +35,7 @@ pipeline {
                       spec: '''{
                             "files": [
                               {
-                                "pattern": "/build/libs/*.war",
+                                "pattern": "build/libs/*.war",
                                 "target": "gradle-release-local/poc-rest-service/"
                               }
                            ]
