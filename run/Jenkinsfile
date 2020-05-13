@@ -1,0 +1,21 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Download Docker image') {
+         steps {
+            sh '''
+                 docker pull <nome da minha image docker>
+               '''
+         }
+      }
+
+      stage('Run Docker image') {
+         steps {
+            sh '''
+                 docker run -d -p 8083:8083 <nome da minha image docker>
+               '''
+         }
+      }
+   }
+}
