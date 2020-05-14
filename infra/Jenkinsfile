@@ -34,7 +34,7 @@ pipeline {
       stage('Provisioning'){
         steps{
             sh '''
-                cd /infra
+                ls .
 
                '''
         }
