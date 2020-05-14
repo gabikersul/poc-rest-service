@@ -4,30 +4,41 @@ pipeline {
    stages {
 
       stage('Download Artifactory') {
-               environment {
-                  ARTIFACTORY_SERVER_ID = credentials('artifactory_server_id')
-                  ARTIFACTORY_SERVER_URL = credentials('artifactory_server_url')
-                  ARTIFACTORY_CREDENTIALS = credentials('artifactory_credentials')
-               }
-               steps {
-                  rtServer (
-                      id: env.ARTIFACTORY_SERVER_ID,
-                      url: env.ARTIFACTORY_SERVER_URL,
-                      username: env.ARTIFACTORY_CREDENTIALS_USR,
-                      password: env.ARTIFACTORY_CREDENTIALS_PSW
-                  )
-                  rtDownload (
-                      serverId: env.ARTIFACTORY_SERVER_ID,
-                      spec: '''{
-                            "files": [
-                              {
-                                "pattern": "gradle-release-local/poc-rest-service/",
-                                "target": ""
-                              }
-                           ]
-                      }'''
-                  )
-               }
+        environment {
+            ARTIFACTORY_SERVER_ID = credentials('artifactory_server_id')
+            ARTIFACTORY_SERVER_URL = credentials('artifactory_server_url')
+            ARTIFACTORY_CREDENTIALS = credentials('artifactory_credentials')
+        }
+
+        steps {
+            rtServer (
+                id: env.ARTIFACTORY_SERVER_ID,
+                url: env.ARTIFACTORY_SERVER_URL,
+                username: env.ARTIFACTORY_CREDENTIALS_USR,
+                password: env.ARTIFACTORY_CREDENTIALS_PSW
+            )
+            rtDownload (
+                serverId: env.ARTIFACTORY_SERVER_ID,
+                    spec: '''{
+                        "files": [
+                            {
+                            "pattern": "gradle-release-local/poc-rest-service/",
+                            "target": "app/"
+                            }
+                        ]
+                    }'''
+            )
+        }
       }
+
+      stage('Provisioning'){
+        steps{
+            sh '''
+                cd /infra
+
+               '''
+        }
+      }
+
    }
 }
