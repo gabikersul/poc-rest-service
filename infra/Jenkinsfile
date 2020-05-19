@@ -36,6 +36,8 @@ pipeline {
             sh '''
                 export PATH=$PATH/usr/local/packer/
                 echo $PATH
+                cd /usr/local/packer/
+                ls -a
                 packer
                '''
         }
