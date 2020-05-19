@@ -35,7 +35,7 @@ pipeline {
         steps{
             sh '''
 
-                ls /usr/local/packer
+                ls /packer
 
                '''
         }
