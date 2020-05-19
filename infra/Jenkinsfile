@@ -34,7 +34,7 @@ pipeline {
       stage('Provisioning'){
         steps{
             sh '''
-
+                export PATH=$PATH/packer
                 echo $PATH
 
                '''
