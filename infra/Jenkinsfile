@@ -34,8 +34,8 @@ pipeline {
       stage('Provisioning'){
         steps{
             sh '''
-                cd infra
-                which packer
+
+                packer
 
                '''
         }
