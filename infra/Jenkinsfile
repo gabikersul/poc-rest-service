@@ -36,7 +36,7 @@ pipeline {
             sh '''
                 export PATH=$PATH/packer
                 echo $PATH
-
+                packer
                '''
         }
       }
