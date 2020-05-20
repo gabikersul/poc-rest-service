@@ -2,13 +2,13 @@ pipeline {
    agent any
 
    stages {
-
+      environment {
+        ARTIFACTORY_SERVER_ID = credentials('artifactory_server_id')
+        ARTIFACTORY_SERVER_URL = credentials('artifactory_server_url')
+        ARTIFACTORY_CREDENTIALS = credentials('artifactory_credentials')
+        DOCKER_HUB_CREDENTIALS = credentials('docker_hub_credentials')
+      }
       stage('Download Artifactory') {
-        environment {
-            ARTIFACTORY_SERVER_ID = credentials('artifactory_server_id')
-            ARTIFACTORY_SERVER_URL = credentials('artifactory_server_url')
-            ARTIFACTORY_CREDENTIALS = credentials('artifactory_credentials')
-        }
 
         steps {
             rtServer (
