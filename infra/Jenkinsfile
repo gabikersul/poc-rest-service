@@ -9,7 +9,6 @@ pipeline {
         DOCKER_HUB_CREDENTIALS = credentials('docker_hub_credentials')
       }
       stage('Download Artifactory') {
-
         steps {
             rtServer (
                 id: env.ARTIFACTORY_SERVER_ID,

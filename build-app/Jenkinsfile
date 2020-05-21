@@ -2,6 +2,11 @@ pipeline {
    agent any
 
    stages {
+      environment {
+        ARTIFACTORY_SERVER_ID = credentials('artifactory_server_id')
+        ARTIFACTORY_SERVER_URL = credentials('artifactory_server_url')
+        ARTIFACTORY_CREDENTIALS = credentials('artifactory_credentials')
+      }
       stage('Test') {
           steps {
              sh '''
@@ -19,11 +24,6 @@ pipeline {
       }
 
       stage('Publish Artifactory') {
-        environment {
-            ARTIFACTORY_SERVER_ID = credentials('artifactory_server_id')
-            ARTIFACTORY_SERVER_URL = credentials('artifactory_server_url')
-            ARTIFACTORY_CREDENTIALS = credentials('artifactory_credentials')
-        }
         steps {
             rtServer (
                 id: env.ARTIFACTORY_SERVER_ID,
