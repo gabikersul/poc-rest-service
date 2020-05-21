@@ -1,12 +1,13 @@
 pipeline {
    agent any
 
-   stages {
-      environment {
+   environment {
         ARTIFACTORY_SERVER_ID = credentials('artifactory_server_id')
         ARTIFACTORY_SERVER_URL = credentials('artifactory_server_url')
         ARTIFACTORY_CREDENTIALS = credentials('artifactory_credentials')
-      }
+   }
+   stages {
+
       stage('Test') {
           steps {
              sh '''
