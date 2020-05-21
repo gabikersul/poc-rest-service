@@ -1,7 +1,7 @@
 {
   "variables": {
-    "docker_hub_username": "",
-    "docker_hub_password": ""
+    "docker_hub_username": "gabikersul",
+    "docker_hub_password": "fgadelt79860RBD"
   },
   "builders":[
     {
@@ -42,8 +42,8 @@
       {
         "type": "docker-push",
         "login": "true",
-        "login_username": "{{user `docker_hub_username`}}",
-        "login_password": "{{user `docker_hub_password`}}"
+        "login_username": "{{user gabikersul}}",
+        "login_password": "{{user fgadelt79860RBD}}"
       }
     ]
   ]
