@@ -1,7 +1,7 @@
 {
   "variables": {
-    "docker_hub_username": "gabikersul",
-    "docker_hub_password": "fgadelt79860RBD"
+    "docker_hub_username": "",
+    "docker_hub_password": ""
   },
   "builders":[
     {
