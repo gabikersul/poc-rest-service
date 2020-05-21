@@ -24,7 +24,7 @@
     },
     {
       "type": "file",
-      "source": "../../../app/poc-rest-service/rest-service.war",
+      "source": "/var/lib/jenkins/workspace/infra/app/poc-rest-service/rest-service.war",
       "destination": "/usr/local/rest-service.war"
     },
     {
