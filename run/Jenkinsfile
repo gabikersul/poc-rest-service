@@ -13,7 +13,7 @@ pipeline {
       stage('Run Docker image') {
          steps {
             sh '''
-                 docker run -p 8083:8083 -d gabikersul/poc-rest-service:rest-service-app
+                 docker run -d -p 8083:8083 gabikersul/poc-rest-service:rest-service-app
                '''
          }
       }
