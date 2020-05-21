@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become_user: sudo
+  tasks:
+    - name: install java 8
+      apt:
+        name: openjdk-8-jdk
+        update_cache: yes
+        install_recommends: no

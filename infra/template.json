@@ -1,0 +1,50 @@
+{
+  "variables": {
+    "docker_hub_username": "",
+    "docker_hub_password": ""
+  },
+  "builders":[
+    {
+      "type": "docker",
+      "image": "ubuntu:18.04",
+      "commit": true,
+      "changes": [
+        "ENTRYPOINT [\"java\", \"-jar\", \"/usr/local/rest-service.war\"]"
+      ]
+    }
+  ],
+  "provisioners":[
+    {
+      "type": "shell",
+      "inline": [
+        "apt-get -y update",
+        "apt-get -y install python3",
+        "apt-get -y install ansible"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "../../../app/poc-rest-service/rest-service.war",
+      "destination": "/usr/local/rest-service.war"
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "playbook.yml"
+    }
+  ],
+  "post-processors":[
+    [
+      {
+        "type": "docker-tag",
+        "repository": "gabikersul/poc-rest-service",
+        "tag": "rest-service-app"
+      },
+      {
+        "type": "docker-push",
+        "login": "true",
+        "login_username": "{{user `docker_hub_username`}}",
+        "login_password": "{{user `docker_hub_password`}}"
+      }
+    ]
+  ]
+}

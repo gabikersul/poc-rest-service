@@ -33,7 +33,8 @@ pipeline {
       stage('Provisioning'){
         steps{
             sh '''
-                packer
+                cd infra/
+                packer validate template.json
                '''
         }
       }
