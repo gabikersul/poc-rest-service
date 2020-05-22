@@ -31,7 +31,7 @@ pipeline {
         }
       }
 
-      stage('Provisioning'){
+      stage('Build Image - Push DockerHub'){
         steps{
             sh '''
                 cd infra/
