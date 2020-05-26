@@ -18,7 +18,7 @@ runs the packer build command which provision a docker image, copy the downloade
 war file to the image and uses ansible to provision an openjdk8 installation;
 - Job #3 -Run: it pulls the published image from Docker Hub and runs it inside a container;
 
-- Video where I show and comment the pipelines execution:
+- Video where I show and comment the pipelines:
   - youtube_link_here
 
 ## Configuration
