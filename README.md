@@ -44,7 +44,7 @@ war file to the image and uses ansible to provision an openjdk8 installation;
 - JFrog Artifactory:
     - Access Jfrog Artifactory at http://localhost:8081/artifactory (default);
     - Login with the default credentials: 
-        - user: admin password: password;
+        - user: admin password: password
     - Set your new admin password;
     - Go to Welcome, admin > Quick Setup and create a gradle repository.
 
