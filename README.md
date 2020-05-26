@@ -110,7 +110,7 @@ war file to the image and uses ansible to provision an openjdk8 installation;
 - Apply and save.
 
 ## Deploy
- ####To deploy the application:
+ #### To deploy the application:
  1. Access build-app job and click on "Build now";
  2. Access infra job and click on "Build now";
  3. Access run job and click on "Build now"; 
