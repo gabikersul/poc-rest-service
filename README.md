@@ -8,16 +8,17 @@
    - [Job #2 - Infra](https://github.com/gabikersul/poc-rest-service#job-2---infra)
    - [Job #3 - Run](https://github.com/gabikersul/poc-rest-service#job-3---run)
    - [Deploy](https://github.com/gabikersul/poc-rest-service#deploy)
+   
 ## Introduction
 It's a 'Greeting' Java + Springboot Application with three Jenkins jobs:
-- Job #1 - Build: it downloads the project code from a github repo, run the tests,
- build the project, generate the war file and uploads it to a JFrog Artifactory repo;
+- Job #1 - Build: it downloads the project code from a github repo, runs the tests,
+ builds the project, generates the war file and uploads it to a JFrog Artifactory repo;
 - Job #2 - Infra: it downloads the war file from the JFrog Artifactory repo,
 runs the packer build command which provision a docker image, copy the downloaded
 war file to the image and uses ansible to provision an openjdk8 installation;
-- Job #3 -Run: it pulls the published image from docker hub and run it inside a container;
+- Job #3 -Run: it pulls the published image from Docker Hub and runs it inside a container;
 
-- Youtube video where I show and comment what is happening during the pipelines execution:
+- Video where I show and comment the pipelines execution:
   - youtube_link_here
 
 ## Configuration
@@ -58,7 +59,7 @@ war file to the image and uses ansible to provision an openjdk8 installation;
     - Apply and save.
     
 
-- Artifactory credentials:
+- Artifactory Credentials:
     - Go to Jenkins > Credentials > System > Global Credentials (unrestricted);
     - Click on Add Credentials, select "Username with a password";
     - Type your JFROG Artifactory login;
@@ -69,7 +70,7 @@ war file to the image and uses ansible to provision an openjdk8 installation;
     - In "Secret" insert your artifactory url, insert "artifactory_server_url" in "ID" and save;
 
         
-- Docker Hub credentials:
+- Docker Hub Credentials:
     - Before: Create an account in [Docker Hub](https://hub.docker.com/signup) (skip this step if you already have one);
     - Go to Jenkins > Credentials > System > Global Credentials (unrestricted);    
     - Click on Add Credentials, select "Username with a password";
