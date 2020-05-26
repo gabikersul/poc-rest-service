@@ -1,16 +1,22 @@
 # Cloud Native - Final Project 01
 
+##Summary:
+    
+   - [Introduction](https://github.com/gabikersul/poc-rest-service#introduction)
+   - [Configuration](https://github.com/gabikersul/poc-rest-service#configuration)
+   - [Job #1 - Build App](https://github.com/gabikersul/poc-rest-service#job-1---build-app)
+   - [Job #2 - Infra](https://github.com/gabikersul/poc-rest-service#job-2---infra)
+   - [Job #3 - Run](https://github.com/gabikersul/poc-rest-service#job-3---run)
+   - [Deploy](https://github.com/gabikersul/poc-rest-service#deploy)
 ## Introduction
-It's a simple 'Greeting' java + springboot application with three Jenkins jobs:
+It's a 'Greeting' Java + Springboot Application with three Jenkins jobs:
 - Job #1 - Build: it downloads the project code from a github repo, run the tests,
  build the project, generate the war file and uploads it to a JFrog Artifactory repo;
 - Job #2 - Infra: it downloads the war file from the JFrog Artifactory repo,
 runs the packer build command which provision a docker image, copy the downloaded
 war file to the image and uses ansible to provision an openjdk8 installation;
 - Job #3 -Run: it pulls the published image from docker hub and run it inside a container;
-- You can access the application at http://localhost:8083/greeting which shows the default message or 
-http://localhost:8083/greeting?name=your_name_here (change 'your_name_here' for a name of your choice) 
-which shows a tailored message.
+
 - Youtube video where I show and comment what is happening during the pipelines execution:
   - youtube_link_here
 
@@ -108,4 +114,6 @@ which shows a tailored message.
  1. Access build-app job and click on "Build now";
  2. Access infra job and click on "Build now";
  3. Access run job and click on "Build now"; 
- 4. You should be able to access the application at http://localhost:8083/greeting .
+ - You can access the application at http://localhost:8083/greeting which shows the default message 
+ - And http://localhost:8083/greeting?name=your_name_here (change 'your_name_here' for a name of your choice) 
+    which shows a tailored message.
