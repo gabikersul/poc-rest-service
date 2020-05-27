@@ -11,10 +11,8 @@
    
 ## Introduction
 It's a 'Greeting' Java + Springboot Application with three Jenkins jobs:
-- Job #1 - Build: it downloads the project code from a github repo, runs the tests,
- builds the project, generates the war file and uploads it to a JFrog Artifactory repo;
-- Job #2 - Infra: it downloads the war file from the JFrog Artifactory repo,
-runs the packer build command which provision a docker image, copy the downloaded
+- Job #1 - Build: it runs the tests, builds the project, generates the war file and uploads it to a JFrog Artifactory repo;
+- Job #2 - Infra: it downloads the war file from the JFrog Artifactory repo, runs the packer build command which provision a docker image, copy the downloaded
 war file to the image and uses ansible to provision an openjdk8 installation;
 - Job #3 -Run: it pulls the published image from Docker Hub and runs it inside a container;
 
