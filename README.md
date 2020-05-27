@@ -1,4 +1,4 @@
-# Cloud Native - Final Project 01
+# Final Project 01 - Cloud Native 
 
 ## Summary:
     
@@ -18,7 +18,7 @@ runs the packer build command which provision a docker image, copy the downloade
 war file to the image and uses ansible to provision an openjdk8 installation;
 - Job #3 -Run: it pulls the published image from Docker Hub and runs it inside a container;
 
-- Video where I show and comment the jobs:
+- Video where I show and comment the Jenkins jobs:
   - youtube_link_here
 
 ## Configuration
@@ -26,7 +26,7 @@ war file to the image and uses ansible to provision an openjdk8 installation;
 
 - Download [Jenkins](https://www.jenkins.io/download/);
 - Download [Packer](https://www.packer.io/downloads.html);
-- Download [Docker](https://docs.docker.com/get-docker/): 
+- Download [Docker](https://docs.docker.com/get-docker/); 
     - To avoid typing sudo while using Docker execute this command in your terminal:
     
             sudo usermod -aG docker ${USER}
@@ -38,9 +38,19 @@ war file to the image and uses ansible to provision an openjdk8 installation;
 
         sudo bash artifactory.sh
 
-- Jenkins:   
+- Jenkins:
+    - Execute the following commands inside your terminal to have root permissions in Jenkins:
+                
+                sudo nano /etc/default/jenkins
+                $JENKINS_USER="root"
+                sudo chown -R root:root /var/lib/jenkins
+                sudo chown -R root:root /var/cache/jenkins
+                sudo chown -R root:root /var/log/jenkins
+                service jenkins restart ps -ef | grep jenkins 
+                   
     - Access Jenkins at http://localhost:8080 (default);
-    - Create your user and password and install the recommended plugins;
+    - Create your user and password and install the recommended plugins.
+    
     
 - JFrog Artifactory:
     - Access Jfrog Artifactory at http://localhost:8081/artifactory (default);
@@ -50,12 +60,12 @@ war file to the image and uses ansible to provision an openjdk8 installation;
     - Go to Welcome, admin > Quick Setup and create a gradle repository.
 
 - Artifactory Plugin:
-    - Go to Manage Jenkins > Manage Plugins > Available. 
+    - Go to Manage Jenkins > Manage Plugins > Available; 
     - Search for 'Artifactory' plugin and install it;
-    - Go to Manage Jenkins > Configure System and scroll down until you find Artifactory:
+    - Go to Manage Jenkins > Configure System and scroll down until you find Artifactory;
     - Choose a Jfrog Artifactory server ID name;
     - Insert the Jfrog Artifactory URL (default: http://IP_ADDRESS:8081/artifactory);
-    - Type your JFrog Artifactory login.
+    - Type your JFrog Artifactory login;
     - Apply and save.
     
 
@@ -63,11 +73,11 @@ war file to the image and uses ansible to provision an openjdk8 installation;
     - Go to Jenkins > Credentials > System > Global Credentials (unrestricted);
     - Click on Add Credentials, select "Username with a password";
     - Type your JFROG Artifactory login;
-    - In the "ID" field insert 'artifactory_credentials' and save.
+    - In the "ID" field insert 'artifactory_credentials' and save;
     - Click on Add Credentials, select "Secret text";
     - In "Secret" insert your JFrog artifactory server ID, in "ID" insert "artifactory_server_id" and save;
     - Click on Add Credentials, select "Secret text";
-    - In "Secret" insert your artifactory url, insert "artifactory_server_url" in "ID" and save;
+    - In "Secret" insert your artifactory url, insert "artifactory_server_url" in "ID" and save.
 
         
 - Docker Hub Credentials:
@@ -114,7 +124,7 @@ war file to the image and uses ansible to provision an openjdk8 installation;
  #### To deploy the application:
  1. Access build-app job and click on "Build now";
  2. Access infra job and click on "Build now";
- 3. Access run job and click on "Build now"; 
- - You can access the application at http://localhost:8083/greeting which shows the default message 
- - And http://localhost:8083/greeting?name=your_name_here (change 'your_name_here' for a name of your choice) 
-    which shows a tailored message.
+ 3. Access run job and click on "Build now". 
+ - You can access the application at http://localhost:8083/greeting which shows the default message. 
+ - You can also access the application at http://localhost:8083/greeting?name=your_name_here 
+  (change 'your_name_here' for a name of your choice) which shows a tailored message.
