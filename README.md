@@ -16,7 +16,7 @@ It's a 'Greeting' Java + Springboot Application with three Jenkins jobs:
 war file to the image, uses ansible to provision an openjdk8 installation and at the end packer publishes the image to Docker Hub;
 - Job #3 -Run: it pulls the published image from Docker Hub and runs it inside a container;
 
-- Youtube [Video](https://youtu.be/Zfg77rTQfBs) which I show and comment the Jenkins jobs.
+- [Youtube Video](https://youtu.be/Zfg77rTQfBs) showing the Jenkins Jobs.
 
 ## Configuration
 - The following ports must be available: **8080**, **8081**, **8082** and **8083**;
