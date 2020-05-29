@@ -1,6 +1,6 @@
 # Final Project 01 - Cloud Native 
 
-## Summary:
+## Summary
     
    - [Introduction](https://github.com/gabikersul/poc-rest-service#introduction)
    - [Configuration](https://github.com/gabikersul/poc-rest-service#configuration)
