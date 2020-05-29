@@ -12,7 +12,7 @@
 ## Introduction
 It's a 'Greeting' Java + Springboot Application with three Jenkins jobs:
 - Job #1 - Build: it runs the tests, builds the project, generates the war file and uploads it to a JFrog Artifactory repo;
-- Job #2 - Infra: it downloads the war file from the JFrog Artifactory repo, runs the packer build command which provision a docker image, copy the downloaded
+- Job #2 - Infra: it downloads the war file from the JFrog Artifactory repo, runs the packer build command which provision a docker image, copies the downloaded
 war file to the image, uses ansible to provision an openjdk8 installation and at the end packer publishes the image to Docker Hub;
 - Job #3 -Run: it pulls the published image from Docker Hub and runs it inside a container;
 
@@ -36,7 +36,7 @@ war file to the image, uses ansible to provision an openjdk8 installation and at
         sudo bash artifactory.sh
 
 - Jenkins:
-    - Execute the following commands inside your terminal to have root permissions in Jenkins:
+    - Execute the following commands inside your terminal to have root permissions on Jenkins:
                 
                 sudo nano /etc/default/jenkins
                 $JENKINS_USER="root"
