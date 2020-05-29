@@ -13,11 +13,10 @@
 It's a 'Greeting' Java + Springboot Application with three Jenkins jobs:
 - Job #1 - Build: it runs the tests, builds the project, generates the war file and uploads it to a JFrog Artifactory repo;
 - Job #2 - Infra: it downloads the war file from the JFrog Artifactory repo, runs the packer build command which provision a docker image, copy the downloaded
-war file to the image and uses ansible to provision an openjdk8 installation;
+war file to the image, uses ansible to provision an openjdk8 installation and at the end packer publishes the image to Docker Hub;
 - Job #3 -Run: it pulls the published image from Docker Hub and runs it inside a container;
 
-- Video where I show and comment the Jenkins jobs:
-  - youtube_link_here
+- Youtube [Video](https://youtu.be/Zfg77rTQfBs) which I show and comment the Jenkins jobs.
 
 ## Configuration
 - The following ports must be available: **8080**, **8081**, **8082** and **8083**;
@@ -44,7 +43,7 @@ war file to the image and uses ansible to provision an openjdk8 installation;
                 sudo chown -R root:root /var/lib/jenkins
                 sudo chown -R root:root /var/cache/jenkins
                 sudo chown -R root:root /var/log/jenkins
-                service jenkins restart ps -ef | grep jenkins 
+                service jenkins start ps -ef | grep jenkins 
                    
     - Access Jenkins at http://localhost:8080 (default);
     - Create your user and password and install the recommended plugins.
