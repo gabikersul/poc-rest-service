@@ -78,7 +78,7 @@ war file to the image, uses ansible to provision an openjdk8 installation and at
 
         
 - Docker Hub Credentials:
-    - Before: Create an account in [Docker Hub](https://hub.docker.com/signup) (skip this step if you already have one);
+    - Before: Create a [Docker Hub](https://hub.docker.com/signup) account (skip this step if you already have one);
     - Go to Jenkins > Credentials > System > Global Credentials (unrestricted);    
     - Click on Add Credentials, select "Username with a password";
     - Type your Docker Hub login;
